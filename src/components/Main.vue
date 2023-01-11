@@ -1,5 +1,6 @@
 <script>
 import { store } from '../store.js';
+import axios from 'axios';
 
 export default {
     name: 'Main',
@@ -17,7 +18,21 @@ export default {
     methods: {
         getCards() {
             //recupero le carte desiderate con questo metodo
-            alert('Vediamo se tuti i comandi funzionano');
+
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0', {
+                params: {
+
+                }
+            })
+                .then(function (response) {
+                    console.log(response.data.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+                .then(function () {
+                    // always executed
+                });
         }
     },
 
