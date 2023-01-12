@@ -30,5 +30,21 @@ export default {
 
 
 <style lang="scss" scoped>
-img {}
+div.cardSpace {
+    width: calc(100%/3);
+
+    figure {
+        width: 100%;
+        padding: 2rem;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+p,
+h3 {
+    text-align: center;
+}
 </style>
