@@ -1,6 +1,5 @@
 <script>
 import { store } from '../store.js';
-import axios from 'axios';
 import CardComponent from './cardComponent.vue'
 
 export default {
@@ -13,36 +12,8 @@ export default {
     data() {
         return {
             store,
-            cardsArrayFromResponse: {},
         }
     },
-
-    methods: {
-        getCards() {
-            //recupero le carte desiderate con questo metodo
-
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0', {
-                params: {
-
-                }
-            })
-                .then((response) => {
-                    console.log(response.data.data);
-                    this.cardsArrayFromResponse = response.data.data;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
-                .then(function () {
-                    // always executed
-                });
-        }
-    },
-
-    created() {
-        this.getCards();
-
-    }
 }
 </script>
 
@@ -66,7 +37,7 @@ export default {
         <div class="row">
             <div class="col-12">
                 <h1>
-                    Found XX cards
+                    Found {{ store.arrayOfFoundCardsLength }} cards
                 </h1>
             </div>
         </div>
@@ -74,10 +45,10 @@ export default {
         <!-- cards container -->
         <div class="row">
             <div class="cardsContainer col-3">
-                <CardComponent v-for="card, index in cardsArrayFromResponse"
-                    :imgPath="cardsArrayFromResponse[index].card_images[0].image_url"
-                    :cardName="cardsArrayFromResponse[index].name"
-                    :archetype="cardsArrayFromResponse[index].archetype" />
+                <CardComponent v-for="card, index in store.cardsArrayFromResponse"
+                    :imgPath="store.cardsArrayFromResponse[index].card_images[0].image_url"
+                    :cardName="store.cardsArrayFromResponse[index].name"
+                    :archetype="store.cardsArrayFromResponse[index].archetype" />
             </div>
         </div>
     </div>
