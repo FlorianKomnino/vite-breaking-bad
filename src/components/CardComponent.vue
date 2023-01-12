@@ -15,7 +15,7 @@ export default {
 <template>
     <div class="cardSpace">
         <figure>
-            <img :src="imgPath" alt="card Image" class="img-fluid">
+            <img :src="imgPath" alt="card Image">
         </figure>
         <div class="cardDescription">
             <h3>
@@ -30,7 +30,5 @@ export default {
 
 
 <style lang="scss" scoped>
-figure {
-    padding: 2rem;
-}
+img {}
 </style>
