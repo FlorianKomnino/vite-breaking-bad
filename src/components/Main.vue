@@ -27,7 +27,7 @@ export default {
                     <label for="archetypeSelector">Choose the archetype you want to see...</label>
                     <select name="archetypes" id="archetypeSelector">
                         <option value=""> - Choose the achetype - </option>
-                        <option value="alien"> Alien </option>
+                        <option v-for="archetype in store.archetypesList" value="alien"> {{ archetype }} </option>
                     </select>
                 </div>
             </div>
