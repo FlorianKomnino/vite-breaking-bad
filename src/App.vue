@@ -11,10 +11,19 @@ export default {
 </script>
 
 <template>
-  <Header />
-  <Main />
+  <header>
+    <Header />
+  </header>
+
+  <main>
+    <Main />
+  </main>
 </template>
 
 <style lang="scss" scoped>
 @use 'bootstrap/scss/bootstrap.scss' as *;
+
+main {
+  background-color: #de8522;
+}
 </style>
